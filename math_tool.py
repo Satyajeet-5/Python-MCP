@@ -1,4 +1,5 @@
-from mcp.server.fastmcp import FastMCP
+import os
+from mcp.server.mcpserver import MCPServer
 
 server = FastMCP("math-mcp")
 
