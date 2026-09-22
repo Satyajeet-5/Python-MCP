@@ -1,7 +1,7 @@
 import os
 from mcp.server.mcpserver import MCPServer
 
-server = FastMCP("math-mcp")
+server = MCPServer("math-mcp")
 
 
 @server.tool()
