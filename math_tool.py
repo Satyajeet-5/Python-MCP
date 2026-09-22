@@ -1,8 +1,7 @@
 import os
-from mcp.server.mcpserver import MCPServer
+from mcp.server.fastmcp import FastMCP
 
-server = MCPServer("math-mcp")
-
+server = FastMCP("math-mcp")
 
 @server.tool()
 def add(a: float, b: float) -> float:
