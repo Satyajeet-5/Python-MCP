@@ -1,12 +1,29 @@
 import os
 import uvicorn
 from mcp.server.fastmcp import FastMCP
+from twilio.rest import Client
+
+account_sid = "ACfa14f3d14cc6f31423a666eb9baf2abb"
+auth_token = "2f5486b8dd1842e13f5e4d374584ca8b"
+client = Client(account_sid, auth_token)
 
 port = int(os.environ.get("PORT", 8000))
 
-server = FastMCP("math-mcp", host="0.0.0.0", port=port)
+server = FastMCP("mcp-tool", host="0.0.0.0", port=port)
 
+@server.tool()
+def send_whatsapp_message(sender: int, receiver: int, body: str) -> str :
+    """Send WhatsApp Message from Sender to Receiver """
 
+    message = client.messages.create(
+         from_= f"whatsapp:+{sender}",
+         to= f"whatsapp:+91{receiver}",
+         body=body
+    )
+
+    print(message.sid)
+    return message.sid
+    
 @server.tool()
 def add(a: float, b: float) -> float:
     """Add two numbers together."""
