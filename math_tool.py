@@ -4,7 +4,7 @@ from mcp.server.fastmcp import FastMCP
 from twilio.rest import Client
 
 account_sid = "ACfa14f3d14cc6f31423a666eb9baf2abb"
-auth_token = "2f5486b8dd1842e13f5e4d374584ca8b"
+auth_token = "5579de33a27c887e614e7b24648ce2c0"
 client = Client(account_sid, auth_token)
 
 port = int(os.environ.get("PORT", 8000))
