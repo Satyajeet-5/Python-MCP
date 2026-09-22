@@ -1,7 +1,11 @@
 import os
+import uvicorn
 from mcp.server.fastmcp import FastMCP
 
+port = int(os.environ.get("PORT", 8000))
+
 server = FastMCP("math-mcp")
+
 
 @server.tool()
 def add(a: float, b: float) -> float:
@@ -22,5 +26,8 @@ def multiply(a: float, b: float) -> float:
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8000))
-    server.run(transport="streamable-http")
+    uvicorn.run(
+        server.streamable_http_app(),
+        host="0.0.0.0",
+        port=port,
+    )
