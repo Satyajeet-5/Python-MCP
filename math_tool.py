@@ -12,11 +12,11 @@ port = int(os.environ.get("PORT", 8000))
 server = FastMCP("mcp-tool", host="0.0.0.0", port=port)
 
 @server.tool()
-def send_whatsapp_message(sender: int, receiver: int, body: str) -> str :
+def send_whatsapp_message(receiver: int, body: str) -> str :
     """Send WhatsApp Message from Sender to Receiver """
 
     message = client.messages.create(
-         from_= f"whatsapp:+{sender}",
+         from_= f"whatsapp:+14155238886",
          to= f"whatsapp:+91{receiver}",
          body=body
     )
