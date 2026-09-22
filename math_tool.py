@@ -23,4 +23,4 @@ def multiply(a: float, b: float) -> float:
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
-    server.run(transport="streamable-http", host="0.0.0.0", port=port)
+    server.run(transport="streamable-http", port=port)
